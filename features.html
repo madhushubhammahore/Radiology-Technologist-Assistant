@@ -1,0 +1,25 @@
+<link
+  href="{{url_for('static',filename='css/feature.css')}}"
+  rel="stylesheet"
+/>
+<div class="container feature-div py-2 mb-4" id="features">
+  <h1 class="feature-heading">Features of our System</h1>
+  <!-- timeline item 1 -->
+  {% for feature in features %}
+  <div class="row feature">
+    <div class="col-lg-6 feature-content">
+      <h4 class="feature-title">{{feature.title}}</h4>
+      <p class="feature-text">{{feature.description}}</p>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <img
+          class="card-img-top card-image"
+          src="{{feature.image}}"
+          alt="{{feature.alt}}"
+        />
+      </div>
+    </div>
+  </div>
+  {%endfor %}
+</div>

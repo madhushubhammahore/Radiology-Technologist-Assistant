@@ -1,0 +1,91 @@
+{% extends "./base.html" %} {% block base %} {%include "./navbar.html" %}
+<link href="{{url_for('static',filename='css/home.css')}}" rel="stylesheet" />
+
+<div class="bg-image">
+  <div class="main-heading-div">
+    <h1 class="main-heading">RADIOLOGY ASSISTANT</h1>
+    <p class="sub-heading">
+      Hand Gesture Recognition of radiology images through sterile browsing
+    </p>
+    <div class="home-page-button">
+      {%if loggedIn %}
+      <button
+        type="button"
+        class="btn btn-info"
+        onclick="location.href = 'http://localhost:5000/launch/';"
+      >
+        Get Started
+      </button>
+      {%endif%} {%if not loggedIn %}
+      <button
+        type="button"
+        class="btn btn-info"
+        onclick="location.href = 'http://localhost:5000/login/';"
+      >
+        Get Started
+      </button>
+      {%endif%}
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+      >
+        Watch Video
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Real time example of our system
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe
+          class="iframe-video"
+          src="https://www.youtube.com/embed/nD621G8u6oc?start=3&loop=1&autoplay=1&mute=1&controls=0"
+        >
+        </iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{%include "./features.html" %} {%include "./teammembers.html" %} {%include
+"./contact.html" %} {%include "./footer.html" %} {% if not loggedIn %}
+<div class="not-login">
+  <div class="alert alert-danger" role="alert">
+    Please Login to use our Service
+  </div>
+</div>
+{%endif%} {% if loggedIn %}
+<div class="not-login">
+  <div class="alert alert-success" role="alert">
+    Logged in as {{data['email']}}
+  </div>
+</div>
+{%endif%} {%endblock%}

@@ -1,0 +1,73 @@
+{% extends "./base.html" %} {% block base %}
+<link href="{{url_for('static',filename='css/signup.css')}}" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div class="signup-div">
+  <div class="signup-box">
+    <div class="logo-on-signuppage">
+      <img src="../static/images/Logo.png" class="login-logo logo" />
+      <h4>Radiology Assistant</h4>
+    </div>
+    <hr />
+
+    <h2>Sign Up</h2>
+
+    <form
+      name="form"
+      class="submit-register-form"
+      action="http://localhost:5000/signup/"
+      autocomplete="off"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="name" name="name" id="name" placeholder="Name" required />
+        <span class="nameError"></span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <span class="emailError"></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <span class="passwordError"></span>
+      </div>
+      {%if signupMessage %}
+      <div class="alert alert-danger" role="alert">{{signupMessage}}</div>
+      {%endif %}
+      <div class="submit-button-div">
+        <button type="submit" class="btn">signup</button>
+      </div>
+    </form>
+
+    <div>
+      Already an user?<a href="/login/" class="signup">
+        Click here to sign in
+      </a>
+    </div>
+    <div>
+      <a href="/" class="login"> Back to Home </a>
+    </div>
+  </div>
+</div>
+<script src="../static/js/signup.js"></script>
+{%endblock%}

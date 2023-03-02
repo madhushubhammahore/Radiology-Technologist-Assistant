@@ -1,0 +1,62 @@
+<link
+  href="{{url_for('static',filename='css/contact.css')}}"
+  rel="stylesheet"
+/>
+<div class="container contact-us-div" id="contact-us">
+  <div class="row">
+    <div class="col-lg-6 contact-us-image-div">
+       
+    </div>
+    <div class="col-lg-6">
+      <div class="contact-form-wrapper d-flex justify-content-center">
+        <form class="contact-form submit-contact-form">
+          <h5 class="title">Contact us</h5>
+          <p class="description">
+            Feel free to contact us if you need any assistance, any help or
+            another question.
+          </p>
+          <div>
+            <input
+              type="text"
+              class="form-control rounded border-white mb-3 form-input name"
+              id="name"
+              placeholder="Name"
+              required
+            />
+            <span class="nameError"></span>
+          </div>
+          <div>
+            <input
+              type="email"
+              class="form-control rounded border-white mb-3 form-input email"
+              placeholder="Email"
+              required
+            />
+            <span class="emailError"></span>
+          </div>
+          <div>
+            <textarea
+              id="message"
+              class="form-control rounded border-white mb-3 form-text-area message
+              rows="5"
+              cols="30"
+              placeholder="Message"
+              name="message"
+              required
+            ></textarea>
+            <span class="messageError"></span>
+          </div>
+          <div class="alert alert-success contact-success-message" role="alert">Thank you! we will reach you shortly</div>
+          <div class="submit-button-wrapper">
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+></script>
+<script src="../static/js/contact.js"></script>

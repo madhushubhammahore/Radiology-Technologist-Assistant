@@ -1,0 +1,62 @@
+{% extends "./base.html" %} {% block base %}
+<link href="{{url_for('static',filename='css/login.css')}}" rel="stylesheet" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div class="login-div">
+  <div class="login-box">
+    <div class="logo-on-loginpage">
+      <img src="../static/images/Logo.png" class="login-logo logo" />
+      <h4>Radiology Assistant</h4>
+    </div>
+    <hr />
+
+    <form
+      name="form"
+      class="submit-login-form"
+      action="http://localhost:5000/login/"
+      autocomplete="off"
+      method="POST"
+    >
+      <div class="form-group">
+        <p>{{email}}</p>
+        <label for="email">Email</label>
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required
+        />
+        <span class="emailError"></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <i class="fa fa-lock" aria-hidden="true"></i>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <span class="passwordError"></span>
+      </div>
+      {%if loginMessage %}
+      <div class="alert alert-danger" role="alert">{{loginMessage}}</div>
+      {%endif %} {%if signupSuccess %}
+      <div class="alert alert-success" role="alert">{{signupSuccess}}</div>
+      {%endif %}
+      <div class="submit-button-div">
+        <button type="submit" class="btn">Log In</button>
+      </div>
+    </form>
+
+    <div>New User?<a href="/signup/" class="signup"> Click to signup </a></div>
+    <div><a href="/" class="home"> Back to Home </a></div>
+  </div>
+</div>
+<script src="../static/js/login.js"></script>
+{%endblock%}

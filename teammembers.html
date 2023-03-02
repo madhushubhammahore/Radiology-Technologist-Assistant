@@ -1,0 +1,63 @@
+<link
+  href="{{url_for('static',filename='css/teammembers.css')}}"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+<div class="team-members-div" id="our-team">
+  <h1 class="team-members-heading">Our Team</h1>
+  <div class="container">
+    <div class="row">
+      {% for teammember in teammembers%}
+      <div class="col-lg-4">
+        <div class="justify-content-md-center">
+          <div class="card cardBorderCorners darkCard">
+            <div class="card-body">
+              <img
+                class="proPic proDark card-img rounded-circle"
+                src="../static/images/teammember-1.jpg"
+                alt="Profile Pic"
+              />
+              <div class="about-team-member">
+                <h5 class="darkTitle card-title">{{teammember.name}}</h5>
+                <h6 class="darkSubTitle card-subtitle">
+                  {{teammember.department}}
+                </h6>
+              </div>
+              <p class="darkMail card-text">
+                <span class="darkMailText rounded">{{teammember.email}}</span>
+              </p>
+            </div>
+
+            <div class="social">
+              <div class="row">
+                <div class="col-sm-4 col-md-4">
+                  <a href="{{teammember.github}}"
+                    ><i class="fa fa-github fa-2x" style="color: #a99ae0"></i
+                  ></a>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <a href="{{teammember.linkedin}}"
+                    ><i
+                      class="col fa fa-linkedin fa-2x"
+                      style="color: #a99ae0"
+                    ></i
+                  ></a>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                  <i
+                    class="col fa fa-instagram fa-2x"
+                    style="color: #a99ae0"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</div>
